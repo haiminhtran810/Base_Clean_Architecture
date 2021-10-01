@@ -1,19 +1,14 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
+    id("com.android.library")
+    id("kotlin-android")
 }
 
 android {
     compileSdk = 30
 
     defaultConfig {
-        applicationId = "com.htm.base_clean_architecture"
         minSdk = 21
         targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
