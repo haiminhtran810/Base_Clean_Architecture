@@ -7,3 +7,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Base_clean_architecture"
 include(":app")
+include(":data")
+include(":domain")
