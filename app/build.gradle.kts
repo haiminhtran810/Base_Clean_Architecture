@@ -1,26 +1,41 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
+    id(GradlePlugins.android)
+    kotlin(GradlePlugins.kotlinAndroid)
+    kotlin(GradlePlugins.kotlinApt)
 }
 
 android {
-    compileSdk = 30
+    compileSdk = Android.compileSdk
+    flavorDimensions.add("default")
 
     defaultConfig {
-        applicationId = "com.htm.base_clean_architecture"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Android.applicationId
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
+        versionCode = Android.versionCode
+        versionName = Android.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidJUnit.runner
     }
 
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles("proguard-rules.pro")
+        getByName(BuildType.release) {
+            isMinifyEnabled = BuildType.minifyRelease
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), BuildType.proguardRelease)
+        }
+        getByName(BuildType.debug) {
+            signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = BuildType.minifyDebug
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), BuildType.proguardDebug)
+        }
+    }
+
+    productFlavors {
+        create("staging") {
+
+        }
+        create("production") {
+
         }
     }
     compileOptions {
@@ -34,11 +49,11 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.6.0")
-    implementation("androidx.appcompat:appcompat:1.3.1")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    implementation(Libs.ktx)
+    implementation(Libs.supportAppCompat)
+    implementation(Libs.supportDesign)
+    implementation(Libs.constraintlayout)
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.jUnitExtension)
+    androidTestImplementation(Libs.espressoCore)
 }
