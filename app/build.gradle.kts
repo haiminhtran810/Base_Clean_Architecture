@@ -45,6 +45,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    dataBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {
@@ -56,4 +59,11 @@ dependencies {
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.jUnitExtension)
     androidTestImplementation(Libs.espressoCore)
+
+    // lifecycle
+    implementation(Libs.lifecycleExtensions)
+    implementation(Libs.lifecycleLiveDataKtx)
+    implementation(Libs.lifecycleViewModel)
+    implementation(Libs.lifecycleSavedState)
+    implementation(Libs.fragmentKtx)
 }
