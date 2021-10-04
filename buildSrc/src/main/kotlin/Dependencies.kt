@@ -8,6 +8,9 @@ object Versions {
     val junit = "4.13.2"
     val jUnitExtension = "1.1.3"
     val espresso = "3.4.0"
+    val lifecycle = "2.2.0-alpha04"
+    val lifecycleSaved = "1.0.0-alpha04"
+    val fragmentKtx = "1.3.0-alpha01"
 }
 
 object Url {
@@ -71,4 +74,16 @@ object Libs {
 
     // espresso for testing
     val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+
+    // lifecycle
+    val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle}"
+    val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
+    val lifecycleLiveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
+    val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    val lifecycleJava8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
+    val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+    val lifecycleSavedState =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleSaved}"
+    val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 }
