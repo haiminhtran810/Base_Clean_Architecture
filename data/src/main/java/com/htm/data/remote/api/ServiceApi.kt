@@ -1,4 +1,8 @@
 package com.htm.data.remote.api
 
-class ServiceApi {
+import retrofit2.http.GET
+
+interface ServiceApi {
+    @GET("search/repositories")
+    fun getMovies()
 }
