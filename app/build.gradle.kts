@@ -75,4 +75,19 @@ dependencies {
     implementation(Libs.navigationUiKtx)
     implementation(Libs.navigationSupport)
     implementation(Libs.navigationTesting)
+
+    // Timber
+    implementation(Libs.timber)
+
+    // Koin
+    implementation(Libs.koinCore)
+    implementation(Libs.koinAndroid)
+    implementation(Libs.koinAndroidScope)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.koinFragment)
+    implementation(Libs.koinTest)
+
+    // Modules
+    implementation(project(Modules.data))
+    implementation(project(Modules.domain))
 }

@@ -1,6 +1,7 @@
 plugins {
     id(GradlePlugins.androidLib)
     id(GradlePlugins.kotlinAndroidLib)
+    kotlin(GradlePlugins.kotlinApt)
 }
 
 android {
@@ -43,7 +44,6 @@ android {
 }
 
 dependencies {
-
     implementation(Libs.ktx)
     implementation(Libs.supportAppCompat)
     implementation(Libs.supportDesign)
@@ -51,4 +51,32 @@ dependencies {
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.jUnitExtension)
     androidTestImplementation(Libs.espressoCore)
+
+    // Retrofit
+    implementation(Libs.retrofitAdapter)
+    implementation(Libs.retrofitRuntime)
+    implementation(Libs.retrofitMoshi)
+    implementation(Libs.retrofitMock)
+    implementation(Libs.okLogging)
+
+    // Moshi
+    implementation(Libs.moshi)
+    implementation(Libs.moshiAdapter)
+    implementation(Libs.moshiKotlin)
+    kapt(Libs.moshiCodeGen)
+
+    // Timber
+    implementation(Libs.timber)
+
+
+    // Koin
+    implementation(Libs.koinCore)
+    implementation(Libs.koinAndroid)
+    implementation(Libs.koinAndroidScope)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.koinFragment)
+    implementation(Libs.koinTest)
+
+    // Module
+    implementation(project(Modules.domain))
 }

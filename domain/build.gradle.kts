@@ -50,4 +50,15 @@ dependencies {
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.jUnitExtension)
     androidTestImplementation(Libs.espressoCore)
+
+    // Koin
+    implementation(Libs.koinCore)
+
+    // Koin
+    implementation(Libs.koinCore)
+    implementation(Libs.koinAndroid)
+    implementation(Libs.koinAndroidScope)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.koinFragment)
+    implementation(Libs.koinTest)
 }

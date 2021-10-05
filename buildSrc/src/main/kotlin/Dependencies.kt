@@ -12,6 +12,11 @@ object Versions {
     val lifecycleSaved = "1.0.0-alpha04"
     val fragmentKtx = "1.3.0-alpha01"
     val navigation = "2.3.5"
+    val retrofit = "2.2.0"
+    val okLogging = "3.9.0"
+    val moshi = "1.12.0"
+    val timber = "4.7.1"
+    val koin = "2.2.2"
 }
 
 object Url {
@@ -22,8 +27,9 @@ object Url {
 
 object BuildPlugins {
     val androidPlugin = "com.android.tools.build:gradle:${Versions.androidPlugin}"
-    val navigationSafe = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
-    val kotlinPlugin  = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    val navigationSafe =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
 
 object Android {
@@ -94,6 +100,31 @@ object Libs {
     // navigation
     val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    val navigationSupport = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
+    val navigationSupport =
+        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
     val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
+
+    // retrofit
+    val retrofitRuntime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    val retrofitMock = "com.squareup.retrofit2:retrofit-mock:${Versions.retrofit}"
+    val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+    val okLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okLogging}"
+
+    // Moshi
+    val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+    val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
+    val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+
+    // Timber
+    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+
+    // Koin
+    val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+    val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
+    val koinAndroidScope = "io.insert-koin:koin-androidx-scope:${Versions.koin}"
+    val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koin}"
+    val koinFragment = "io.insert-koin:koin-androidx-fragment:${Versions.koin}"
+    val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
 }
