@@ -11,6 +11,7 @@ object Versions {
     val lifecycle = "2.2.0-alpha04"
     val lifecycleSaved = "1.0.0-alpha04"
     val fragmentKtx = "1.3.0-alpha01"
+    val navigation = "2.3.5"
 }
 
 object Url {
@@ -21,6 +22,8 @@ object Url {
 
 object BuildPlugins {
     val androidPlugin = "com.android.tools.build:gradle:${Versions.androidPlugin}"
+    val navigationSafe = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    val kotlinPlugin  = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
 
 object Android {
@@ -39,6 +42,7 @@ object GradlePlugins {
     const val kotlinApt = "kapt"
     const val androidLib = "com.android.library"
     const val kotlinAndroidLib = "kotlin-android"
+    const val navigation = "androidx.navigation.safeargs"
 }
 
 object Modules {
@@ -86,4 +90,10 @@ object Libs {
     val lifecycleSavedState =
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleSaved}"
     val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+
+    // navigation
+    val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    val navigationUiKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    val navigationSupport = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
+    val navigationTesting = "androidx.navigation:navigation-testing:${Versions.navigation}"
 }

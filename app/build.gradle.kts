@@ -1,5 +1,6 @@
 plugins {
     id(GradlePlugins.android)
+    id(GradlePlugins.navigation)
     kotlin(GradlePlugins.kotlinAndroid)
     kotlin(GradlePlugins.kotlinApt)
 }
@@ -56,14 +57,22 @@ dependencies {
     implementation(Libs.supportAppCompat)
     implementation(Libs.supportDesign)
     implementation(Libs.constraintlayout)
+
+    // Unit test
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.jUnitExtension)
     androidTestImplementation(Libs.espressoCore)
 
-    // lifecycle
+    // Lifecycle
     implementation(Libs.lifecycleExtensions)
     implementation(Libs.lifecycleLiveDataKtx)
     implementation(Libs.lifecycleViewModel)
     implementation(Libs.lifecycleSavedState)
     implementation(Libs.fragmentKtx)
+
+    // Navigation
+    implementation(Libs.navigationFragmentKtx)
+    implementation(Libs.navigationUiKtx)
+    implementation(Libs.navigationSupport)
+    implementation(Libs.navigationTesting)
 }
