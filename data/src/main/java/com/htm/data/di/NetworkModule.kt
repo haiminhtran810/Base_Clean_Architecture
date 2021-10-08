@@ -1,5 +1,6 @@
 package com.htm.data.di
 
+import com.htm.data.remote.api.MockApi
 import com.htm.data.remote.api.ServiceApi
 import com.htm.data.remote.interceptor.HeaderInterceptor
 import okhttp3.OkHttpClient
@@ -34,6 +35,10 @@ internal val networkModule = module {
 
     single {
         get<Retrofit>().create(ServiceApi::class.java)
+    }
+
+    single {
+        get<Retrofit>().create(MockApi::class.java)
     }
 
 }

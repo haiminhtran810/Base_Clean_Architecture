@@ -15,12 +15,34 @@ android {
     }
 
     buildTypes {
+        val API_URL = "https://api.themoviedb.org/3/"
+        val SMALL_IMAGE_URL = "https://image.tmdb.org/t/p/w200"
+        val LARGE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+        val ORIGINAL_IMAGE_URL = "https://image.tmdb.org/t/p/original"
+        val API_KEY = "3e047b2cc8fc38537ee7b3e6f547e53c"
+        val YOUTUBE_URL = "https://www.youtube.com/watch?v="
+
         getByName(BuildType.release) {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), BuildType.proguardRelease)
+
+            buildConfigField("String", "API_URL", "\"${API_URL}\"")
+            buildConfigField("String", "SMALL_IMAGE_URL", "\"${SMALL_IMAGE_URL}\"")
+            buildConfigField("String", "LARGE_IMAGE_URL", "\"${LARGE_IMAGE_URL}\"")
+            buildConfigField("String", "ORIGINAL_IMAGE_URL", "\"${ORIGINAL_IMAGE_URL}\"")
+            buildConfigField("String", "API_KEY", "\"${API_KEY}\"")
+            buildConfigField("String", "YOUTUBE_URL", "\"${YOUTUBE_URL}\"")
         }
+
         getByName(BuildType.debug) {
             signingConfig = signingConfigs.getByName("debug")
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), BuildType.proguardDebug)
+
+            buildConfigField("String", "API_URL", "\"${API_URL}\"")
+            buildConfigField("String", "SMALL_IMAGE_URL", "\"${SMALL_IMAGE_URL}\"")
+            buildConfigField("String", "LARGE_IMAGE_URL", "\"${LARGE_IMAGE_URL}\"")
+            buildConfigField("String", "ORIGINAL_IMAGE_URL", "\"${ORIGINAL_IMAGE_URL}\"")
+            buildConfigField("String", "API_KEY", "\"${API_KEY}\"")
+            buildConfigField("String", "YOUTUBE_URL", "\"${YOUTUBE_URL}\"")
         }
     }
 
@@ -79,4 +101,8 @@ dependencies {
 
     // Module
     implementation(project(Modules.domain))
+
+    // Kotlin Coroutines
+    implementation(Libs.coroutinesAndroid)
+    implementation(Libs.coroutinesCore)
 }

@@ -1,5 +1,7 @@
 package com.htm.domain.repository
 
+import com.htm.domain.model.Movie
+
 interface MovieRepository : ItemRepository {
-    fun getMovies(query: String): Boolean
+    suspend fun getMovies(page: Int): List<Movie>?
 }
