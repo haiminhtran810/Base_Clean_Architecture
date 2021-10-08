@@ -1,4 +1,7 @@
 package com.htm.base_clean_architecture.di
 
-class ViewModelModule {
+import org.koin.dsl.module
+
+val viewModelModule = module {
+
 }

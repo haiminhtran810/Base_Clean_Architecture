@@ -17,6 +17,7 @@ object Versions {
     val moshi = "1.12.0"
     val timber = "4.7.1"
     val koin = "2.2.2"
+    val coroutines = "1.5.30"
 }
 
 object Url {
@@ -127,4 +128,8 @@ object Libs {
     val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koin}"
     val koinFragment = "io.insert-koin:koin-androidx-fragment:${Versions.koin}"
     val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
+
+    // Coroutines
+    val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$Versions.coroutines"
+    val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$Versions.coroutines"
 }
