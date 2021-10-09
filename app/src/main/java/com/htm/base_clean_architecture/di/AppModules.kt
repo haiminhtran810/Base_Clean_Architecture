@@ -7,4 +7,5 @@ import org.koin.core.module.Module
 val appModules: List<Module> = mutableListOf<Module>().apply {
     addAll(dataModule)
     add(domainModule)
+    addAll(presentationModule)
 }

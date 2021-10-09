@@ -50,6 +50,7 @@ object GradlePlugins {
     const val androidLib = "com.android.library"
     const val kotlinAndroidLib = "kotlin-android"
     const val navigation = "androidx.navigation.safeargs"
+    const val kotlinParcelize = "kotlin-parcelize"
 }
 
 object Modules {

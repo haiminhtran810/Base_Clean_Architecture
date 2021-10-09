@@ -1,6 +1,7 @@
 plugins {
     id(GradlePlugins.android)
     id(GradlePlugins.navigation)
+    id(GradlePlugins.kotlinParcelize)
     kotlin(GradlePlugins.kotlinAndroid)
     kotlin(GradlePlugins.kotlinApt)
 }
