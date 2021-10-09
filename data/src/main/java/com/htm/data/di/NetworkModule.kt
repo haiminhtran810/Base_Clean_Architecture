@@ -1,6 +1,5 @@
 package com.htm.data.di
 
-import com.htm.data.remote.api.MockApi
 import com.htm.data.remote.api.ServiceApi
 import com.htm.data.remote.interceptor.HeaderInterceptor
 import okhttp3.OkHttpClient
@@ -13,9 +12,9 @@ import java.util.concurrent.TimeUnit
 
 private const val DEFAULT_CONNECTION_TIMEOUT = 15000L
 
-internal val networkModule = module {
+val networkModule = module {
     single {
-        createRetrofit(
+        return@single createRetrofit(
             baseUrl = "",
             connectionTimeout = DEFAULT_CONNECTION_TIMEOUT,
             headerInterceptor = get(),
@@ -24,7 +23,7 @@ internal val networkModule = module {
     }
 
     factory {
-        HttpLoggingInterceptor().apply {
+        return@factory HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
     }
@@ -35,10 +34,6 @@ internal val networkModule = module {
 
     single {
         get<Retrofit>().create(ServiceApi::class.java)
-    }
-
-    single {
-        get<Retrofit>().create(MockApi::class.java)
     }
 
 }

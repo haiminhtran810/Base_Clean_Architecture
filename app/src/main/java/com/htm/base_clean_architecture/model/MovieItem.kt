@@ -2,9 +2,8 @@ package com.htm.base_clean_architecture.model
 
 import android.os.Parcelable
 import com.htm.base_clean_architecture.base.ItemMapper
-import com.htm.domain.model.Model
 import com.htm.domain.model.Movie
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MovieItem(
