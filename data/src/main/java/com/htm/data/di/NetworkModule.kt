@@ -15,7 +15,7 @@ private const val DEFAULT_CONNECTION_TIMEOUT = 15000L
 val networkModule = module {
     single {
         return@single createRetrofit(
-            baseUrl = "",
+            baseUrl = "https://api.themoviedb.org/3/",
             connectionTimeout = DEFAULT_CONNECTION_TIMEOUT,
             headerInterceptor = get(),
             loggingInterceptor = get()
