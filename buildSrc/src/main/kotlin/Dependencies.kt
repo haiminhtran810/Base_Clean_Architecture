@@ -12,7 +12,7 @@ object Versions {
     val lifecycleSaved = "1.0.0-alpha04"
     val fragmentKtx = "1.3.0-alpha01"
     val navigation = "2.3.5"
-    val retrofit = "2.2.0"
+    val retrofit = "2.9.0"
     val okLogging = "3.9.0"
     val coroutineAdapter = "0.9.2"
     val moshi = "1.12.0"

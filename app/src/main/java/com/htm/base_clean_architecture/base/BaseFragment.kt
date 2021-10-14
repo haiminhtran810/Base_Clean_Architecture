@@ -34,9 +34,12 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         super.onViewCreated(view, savedInstanceState)
         viewDataBinding.apply {
             setVariable(bindingVariable, viewModel)
-            executePendingBindings()
             lifecycleOwner = this@BaseFragment
+            executePendingBindings()
         }
+        observeEvent()
     }
+
+    open fun observeEvent() {}
 
 }

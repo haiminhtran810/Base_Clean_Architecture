@@ -69,7 +69,6 @@ fun createRetrofit(
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .client(client)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .addCallAdapterFactory(CoroutineCallAdapterFactory())
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 }
