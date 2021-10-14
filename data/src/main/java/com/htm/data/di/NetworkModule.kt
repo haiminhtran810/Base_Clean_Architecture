@@ -2,6 +2,9 @@ package com.htm.data.di
 
 import com.htm.data.remote.api.ServiceApi
 import com.htm.data.remote.interceptor.HeaderInterceptor
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
@@ -18,8 +21,23 @@ val networkModule = module {
             baseUrl = "https://api.themoviedb.org/3/",
             connectionTimeout = DEFAULT_CONNECTION_TIMEOUT,
             headerInterceptor = get(),
-            loggingInterceptor = get()
+            loggingInterceptor = get(),
+            moshi = get()
         )
+    }
+
+    factory {
+        HeaderInterceptor()
+    }
+
+    single {
+        Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+    }
+
+    single {
+        get<Retrofit>().create(ServiceApi::class.java)
     }
 
     factory {
@@ -28,21 +46,14 @@ val networkModule = module {
         }
     }
 
-    factory {
-        HeaderInterceptor()
-    }
-
-    single {
-        get<Retrofit>().create(ServiceApi::class.java)
-    }
-
 }
 
 fun createRetrofit(
     baseUrl: String,
     connectionTimeout: Long,
     headerInterceptor: HeaderInterceptor,
-    loggingInterceptor: HttpLoggingInterceptor
+    loggingInterceptor: HttpLoggingInterceptor,
+    moshi: Moshi
 ): Retrofit {
 
     val builder = OkHttpClient.Builder()
@@ -59,5 +70,6 @@ fun createRetrofit(
         .baseUrl(baseUrl)
         .client(client)
         .addConverterFactory(MoshiConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 }

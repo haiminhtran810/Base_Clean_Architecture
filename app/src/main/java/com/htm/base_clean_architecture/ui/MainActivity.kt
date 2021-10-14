@@ -1,6 +1,7 @@
-package com.htm.base_clean_architecture
+package com.htm.base_clean_architecture.ui
 
 import android.os.Bundle
+import com.htm.base_clean_architecture.R
 import com.htm.base_clean_architecture.base.BaseActivity
 
 class MainActivity : BaseActivity() {
