@@ -14,8 +14,9 @@ object Versions {
     val navigation = "2.3.5"
     val retrofit = "2.2.0"
     val okLogging = "3.9.0"
+    val coroutineAdapter = "0.9.2"
     val moshi = "1.12.0"
-    val timber = "4.7.1"
+    val timber = "5.0.1"
     val koin = "2.2.2"
     val coroutines = "1.5.30"
 }
@@ -110,7 +111,6 @@ object Libs {
     val retrofitRuntime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val retrofitMock = "com.squareup.retrofit2:retrofit-mock:${Versions.retrofit}"
-    val retrofitAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val okLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okLogging}"
 
     // Moshi
@@ -118,6 +118,8 @@ object Libs {
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
     val moshiCodeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+    val moshiRetrofitAdapter =
+        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.coroutineAdapter}"
 
     // Timber
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"

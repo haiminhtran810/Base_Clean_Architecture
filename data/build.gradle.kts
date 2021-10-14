@@ -75,7 +75,7 @@ dependencies {
     androidTestImplementation(Libs.espressoCore)
 
     // Retrofit
-    implementation(Libs.retrofitAdapter)
+    implementation(Libs.moshiRetrofitAdapter)
     implementation(Libs.retrofitRuntime)
     implementation(Libs.retrofitMoshi)
     implementation(Libs.retrofitMock)

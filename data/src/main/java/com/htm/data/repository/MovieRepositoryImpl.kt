@@ -10,7 +10,7 @@ class MovieRepositoryImpl(
     private val movieEntityMapper: MovieEntityMapper
 ) : MovieRepository {
     override suspend fun getMovies(page: Int): List<Movie>? {
-        return serverApi.getMovieListPopular(page = page).results?.map {
+        return serverApi.getMovieListPopular(page = page).body()?.results?.map {
             movieEntityMapper.mapToDomain(it)
         }
     }
