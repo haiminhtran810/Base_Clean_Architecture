@@ -1,43 +1,48 @@
 package com.htm.base_clean_architecture.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.htm.base_clean_architecture.util.autoCleared
+import androidx.viewbinding.ViewBinding
+import java.lang.IllegalArgumentException
 
-abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+abstract class BaseFragment<B : ViewBinding>() : Fragment() {
 
-    abstract val bindingVariable: Int
+    private var _viewBinding: B? = null
+    protected val viewBinding get() = _viewBinding!!
 
-    abstract val viewModel: V
 
-    @get:LayoutRes
-    abstract val layoutId: Int
+    abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> B
 
-    var viewDataBinding by autoCleared<T>()
+    protected lateinit var baseActivity: BaseActivity
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        viewDataBinding = DataBindingUtil.inflate(inflater, layoutId, container, false)
-        return viewDataBinding.root
+        _viewBinding = bindingInflater.invoke(inflater, container, false)
+        return viewBinding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context !is BaseActivity) {
+            throw IllegalArgumentException("the host activity must be BaseActivity or it's derived class")
+        }
+        baseActivity = context
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewDataBinding.apply {
-            setVariable(bindingVariable, viewModel)
-            lifecycleOwner = this@BaseFragment
-            executePendingBindings()
-        }
         observeEvent()
+    }
+
+
+    override fun onDestroyView() {
+        _viewBinding = null
+        super.onDestroyView()
     }
 
     open fun observeEvent() {}

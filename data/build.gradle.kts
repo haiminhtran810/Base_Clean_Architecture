@@ -1,7 +1,6 @@
 plugins {
     id(GradlePlugins.androidLib)
     id(GradlePlugins.kotlinAndroidLib)
-    kotlin(GradlePlugins.kotlinApt)
 }
 
 android {
@@ -60,18 +59,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+//    kotlinOptions {
+//        jvmTarget = "1.8"
+//    }
 }
 
 dependencies {
-    implementation(Libs.ktx)
-    implementation(Libs.supportAppCompat)
-    implementation(Libs.supportDesign)
-    implementation(Libs.constraintlayout)
+    implementation(Libs.kotlinCore)
+    implementation(Libs.appcompat)
+    implementation(Libs.material)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.multidex)
+    implementation(Libs.coroutinesAndroid)
+    implementation(Libs.coroutinesCore)
+    implementation(Libs.lifecycleExtensions)
+    implementation(Libs.lifecycleRuntime)
+    implementation(Libs.viewModel)
+    implementation(Libs.liveData)
+
+    // Unit test
     testImplementation(Libs.junit)
-    androidTestImplementation(Libs.jUnitExtension)
+    androidTestImplementation(Libs.runner)
     androidTestImplementation(Libs.espressoCore)
 
     // Retrofit
@@ -85,7 +93,7 @@ dependencies {
     implementation(Libs.moshi)
     implementation(Libs.moshiAdapter)
     implementation(Libs.moshiKotlin)
-    kapt(Libs.moshiCodeGen)
+    implementation(Libs.moshiCodeGen)
 
     // Timber
     implementation(Libs.timber)

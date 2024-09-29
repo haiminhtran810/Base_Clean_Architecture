@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Base_clean_architecture</string>
+    <string name="splash">Splash</string>
 </resources>

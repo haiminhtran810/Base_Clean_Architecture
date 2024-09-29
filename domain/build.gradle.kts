@@ -43,12 +43,21 @@ android {
 }
 
 dependencies {
-    implementation(Libs.ktx)
-    implementation(Libs.supportAppCompat)
-    implementation(Libs.supportDesign)
-    implementation(Libs.constraintlayout)
+    implementation(Libs.kotlinCore)
+    implementation(Libs.appcompat)
+    implementation(Libs.material)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.multidex)
+    implementation(Libs.coroutinesAndroid)
+    implementation(Libs.coroutinesCore)
+    implementation(Libs.lifecycleExtensions)
+    implementation(Libs.lifecycleRuntime)
+    implementation(Libs.viewModel)
+    implementation(Libs.liveData)
+
+    // Unit test
     testImplementation(Libs.junit)
-    androidTestImplementation(Libs.jUnitExtension)
+    androidTestImplementation(Libs.runner)
     androidTestImplementation(Libs.espressoCore)
 
     // Koin
