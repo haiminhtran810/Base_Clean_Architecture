@@ -2,8 +2,8 @@ plugins {
     id(GradlePlugins.android)
     id(GradlePlugins.navigation)
     id(GradlePlugins.kotlinParcelize)
-    kotlin(GradlePlugins.kotlinAndroid)
-    kotlin(GradlePlugins.kotlinApt)
+    id(GradlePlugins.kotlinAndroid)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -44,32 +44,37 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
-    dataBinding {
+    viewBinding {
         isEnabled = true
     }
 }
 
 dependencies {
 
-    implementation(Libs.ktx)
-    implementation(Libs.supportAppCompat)
-    implementation(Libs.supportDesign)
-    implementation(Libs.constraintlayout)
+    implementation(Libs.kotlinCore)
+    implementation(Libs.appcompat)
+    implementation(Libs.material)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.multidex)
+    implementation(Libs.coroutinesAndroid)
+    implementation(Libs.coroutinesCore)
+    implementation(Libs.lifecycleExtensions)
+    implementation(Libs.lifecycleRuntime)
+    implementation(Libs.viewModel)
+    implementation(Libs.liveData)
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    implementation("androidx.databinding:databinding-runtime:8.6.1")
 
     // Unit test
     testImplementation(Libs.junit)
-    androidTestImplementation(Libs.jUnitExtension)
+    androidTestImplementation(Libs.runner)
     androidTestImplementation(Libs.espressoCore)
-
-    // Lifecycle
-    implementation(Libs.lifecycleExtensions)
-    implementation(Libs.lifecycleLiveDataKtx)
-    implementation(Libs.lifecycleViewModel)
-    implementation(Libs.lifecycleSavedState)
-    implementation(Libs.fragmentKtx)
 
     // Navigation
     implementation(Libs.navigationFragmentKtx)

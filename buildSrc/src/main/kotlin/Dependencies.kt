@@ -1,14 +1,26 @@
 object Versions {
-    val kotlin = "1.5.31"
-    val androidPlugin = "7.0.2"
-    val androidxCore = "1.6.0"
+    const val kotlin = "1.8.0"
+    const val androidxCore = "1.6.0"
+    const val coroutines = "1.3.6"
+    const val lifecycle = "2.5.1"
+    const val lifecycleExt = "2.2.0"
+    const val appCompat = "1.6.1"
+    const val constraintLayout = "2.1.4"
+    const val viewpager2 = "1.0.0"
+    const val multidex = "2.0.0"
+    const val cardview = "1.0.0"
+    const val recyclerView = "1.3.0"
+    const val androidXExtTest = "1.1.3"
+    const val runner = "1.1.1"
+    const val espressoCore = "3.1.1"
+    const val hamcrest = "1.3"
+    val androidPlugin = "7.1.3"
     val support = "1.3.1"
     val supportDesign = "1.4.0"
     val constraintlayout = "2.1.1"
     val junit = "4.13.2"
     val jUnitExtension = "1.1.3"
     val espresso = "3.4.0"
-    val lifecycle = "2.2.0-alpha04"
     val lifecycleSaved = "1.0.0-alpha04"
     val fragmentKtx = "1.3.0-alpha01"
     val navigation = "2.3.5"
@@ -18,7 +30,6 @@ object Versions {
     val moshi = "1.12.0"
     val timber = "5.0.1"
     val koin = "2.2.2"
-    val coroutines = "1.5.30"
 }
 
 object Url {
@@ -36,18 +47,18 @@ object BuildPlugins {
 
 object Android {
     const val applicationId = "com.htm.base_clean_architecture"
-    const val minSdk = 21
-    const val targetSdk = 30
+    const val minSdk = 24
+    const val targetSdk = 34
     const val versionCode = 1
     const val versionName = "1.0"
-    const val compileSdk = 30
+    const val compileSdk = 34
 
 }
 
 object GradlePlugins {
     const val android = "com.android.application"
     const val kotlinAndroid = "android"
-    const val kotlinApt = "kapt"
+    const val kotlinApt = "kotlin-kapt"
     const val androidLib = "com.android.library"
     const val kotlinAndroidLib = "kotlin-android"
     const val navigation = "androidx.navigation.safeargs"
@@ -76,29 +87,29 @@ object BuildType {
 }
 
 object Libs {
-    val ktx = "androidx.core:core-ktx:${Versions.androidxCore}"
-    val supportAppCompat = "androidx.appcompat:appcompat:${Versions.support}"
-    val supportDesign = "com.google.android.material:material:${Versions.supportDesign}"
-    val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+    val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlinCore = "androidx.core:core-ktx:${Versions.androidxCore}"
+    const val kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlin}"
+    const val coroutinesCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val lifecycleExtensions =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExt}"
+    const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
 
-    // JUnit for testing
-    val junit = "junit:junit:${Versions.junit}"
-    val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
-
-    // espresso for testing
-    val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-
-    // lifecycle
-    val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle}"
-    val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
-    val lifecycleLiveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
-    val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
-    val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
-    val lifecycleJava8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
-    val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
-    val lifecycleSavedState =
-        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifecycleSaved}"
-    val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+    const val material = "com.google.android.material:material:${Versions.appCompat}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val viewpager2 = "androidx.viewpager2:viewpager2:${Versions.viewpager2}"
+    const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
+    const val cardview = "androidx.cardview:cardview:${Versions.cardview}"
+    const val swiperefreshlayout =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.cardview}"
 
     // navigation
     val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
@@ -132,7 +143,9 @@ object Libs {
     val koinFragment = "io.insert-koin:koin-androidx-fragment:${Versions.koin}"
     val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
 
-    // Coroutines
-    val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$Versions.coroutines"
-    val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$Versions.coroutines"
+    val junit = "junit:junit:${Versions.junit}"
+    val testExtJunit = "androidx.test.ext:junit:${Versions.androidXExtTest}"
+    val runner = "androidx.test:runner:${Versions.runner}"
+    val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+    val hamcrest = "org.hamcrest:hamcrest-all:${Versions.hamcrest}"
 }
